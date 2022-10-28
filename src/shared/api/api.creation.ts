@@ -6,11 +6,14 @@ import { handleResponseError, handleResponseSuccess } from './interceptors/respo
 
 export const createApiInstance = (host: string, requestTimeout = 20000): AxiosInstance => {
   const apiInstance = axios.create({
-    baseURL: host,
+    baseURL: "http://localhost:8888/doan/wp-json/wp/v2",
     headers: {
       'Content-Type': 'application/json',
       'x-user-agent': `web-dashboard-${configuration.ENVIRONMENT}`,
-      'x-user-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone
+      'x-user-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
+      'x-apikey': '59a7ad19f5a9fa0808f11931',
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
     timeout: requestTimeout,
     responseType: 'json'

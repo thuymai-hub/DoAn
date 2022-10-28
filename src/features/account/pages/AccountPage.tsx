@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { requestGetAccounts } from 'shared/api/customer.api';
 import { InputSearch } from 'shared/components/Input';
 import { Table } from 'shared/components/Table/Table';
 import { useTableData } from 'shared/hooks/useTableData';
@@ -16,7 +15,7 @@ export const AccountPage: React.FC = () => {
   const [searchText, setSearchText] = useState<string>('');
   const { dataSource, loading, paging, setPaging } = useTableData({
     expandFilter,
-    fetchList: requestGetAccounts
+    fetchList: null
   });
 
   const columns = [

@@ -24,10 +24,11 @@ export const useTableData = ({ expandFilter = {}, fetchList }: IUseTableData) =>
         setLoading(true);
         const { data, meta } = await fetchList({
           ...filters,
-          limit: paging.pageSize,
-          page: paging.currentPage,
-          ...expandFilter
+          // limit: paging.pageSize,
+          // page: paging.currentPage,
+          // ...expandFilter
         });
+console.log("data",data);
 
         setdataSource(data || []);
 

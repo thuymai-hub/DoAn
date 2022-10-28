@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { requestGetDetailAccount } from 'shared/api/customer.api';
 import { CardInfo } from 'shared/components/Card';
 import { Table } from 'shared/components/Table/Table';
 
@@ -44,17 +43,8 @@ export const DashBoardTab: React.FC = () => {
   }, [params]);
 
   const getDataSource = async () => {
-    try {
-      const res = await requestGetDetailAccount(params.id || '');
-
-      const result = { ...accountInfo };
-      Object.keys(accountInfo).map((key: string) => {
-        result[key].value = res.data[key];
-      });
-      setAccountInfo(result);
-    } catch (error) {
-      console.error('Exception ' + error);
-    }
+    console.log("run");
+    
   };
 
   const renderAccountInfo = (

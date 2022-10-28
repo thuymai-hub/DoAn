@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { PROTECTED_ROUTES_PATH } from 'routes/RoutesPath';
+import { requestGetEvents } from 'shared/api/event.api';
 import { useTableData } from 'shared/hooks/useTableData';
 import { mookData } from 'shared/mookData/news';
 
@@ -18,7 +19,7 @@ export const EventPage: React.FC = () => {
   const searchRef: any = useRef();
   const { dataSource, loading, paging, setPaging } = useTableData({
     expandFilter,
-    fetchList: null
+    fetchList: requestGetEvents
   });
 
   const tranferPage = (mode = 'add', id?: string | number) => {
